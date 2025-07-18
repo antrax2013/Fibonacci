@@ -1,6 +1,6 @@
 ﻿namespace Fibonacci;
 
-public class UStringNumber : IComparable<UStringNumber>, IEquatable<UStringNumber>
+public class UStringNumber
 {
     private string value;
     public string Value
@@ -27,7 +27,9 @@ public class UStringNumber : IComparable<UStringNumber>, IEquatable<UStringNumbe
         return Value;
     }
 
+#pragma warning disable CS8618 // Un champ non-nullable doit contenir une valeur autre que Null lors de la fermeture du constructeur. Envisagez d’ajouter le modificateur « required » ou de déclarer le champ comme pouvant accepter la valeur Null.
     public UStringNumber(string value = "0") => Value = value;
+#pragma warning restore CS8618 // Un champ non-nullable doit contenir une valeur autre que Null lors de la fermeture du constructeur. Envisagez d’ajouter le modificateur « required » ou de déclarer le champ comme pouvant accepter la valeur Null.
 
     private int GetValueFromEnd(int reverseIndex)
     {
@@ -72,87 +74,5 @@ public class UStringNumber : IComparable<UStringNumber>, IEquatable<UStringNumbe
 
         string r = string.Join("", result);
         return new UStringNumber(Reverse(r));
-    }
-
-    public override int GetHashCode() => Value.GetHashCode();
-
-    public int CompareTo(UStringNumber? other)
-    {
-        if (other is null) return 1;
-
-        if (other.Equals(this)) return 0;
-
-        if (other.Value.Length < Value.Length) return 1;
-        if (other.Value.Length > Value.Length) return -1;
-
-        for (int i = 0; i < Value.Length; i++)
-        {
-            _ = int.TryParse(other.Value[i].ToString(), out int otherVal);
-            _ = int.TryParse(Value[i].ToString(), out int val);
-            if (otherVal == val)
-                continue;
-            return val.CompareTo(otherVal);
-        }
-        throw new NotImplementedException();
-    }
-
-    public static UStringNumber operator ++(UStringNumber obj)
-    {
-        return obj.Add(new("1"));
-    }
-
-    public bool Equals(UStringNumber? other)
-    {
-        if (other is null)
-            return false;
-
-        if (ReferenceEquals(this, other))
-            return true;
-
-        if (GetType() != other.GetType())
-            return false;
-
-        return (Value == other.Value);
-    }
-
-    public static bool operator ==(UStringNumber left, UStringNumber right)
-    {
-        if (left?.Value != right?.Value)
-            return false;
-
-        return left!.Equals(right);
-    }
-
-    public static bool operator !=(UStringNumber a, UStringNumber b) => !(a == b);
-
-    public override bool Equals(object? obj)
-    {
-        if (ReferenceEquals(this, obj))
-            return true;
-
-        if (obj is null)
-            return false;
-
-        throw new NotImplementedException();
-    }
-
-    public static bool operator <(UStringNumber left, UStringNumber right)
-    {
-        return left is null ? right is not null : left.CompareTo(right) < 0;
-    }
-
-    public static bool operator <=(UStringNumber left, UStringNumber right)
-    {
-        return left is null || left.CompareTo(right) <= 0;
-    }
-
-    public static bool operator >(UStringNumber left, UStringNumber right)
-    {
-        return left is not null && left.CompareTo(right) > 0;
-    }
-
-    public static bool operator >=(UStringNumber left, UStringNumber right)
-    {
-        return left is null ? right is null : left.CompareTo(right) >= 0;
     }
 }

@@ -2,12 +2,11 @@
 using Fibonacci;
 using System.Diagnostics;
 
-UInt128 index = 100_000;
+UInt128 index = 187;
 
 Console.WriteLine($"Get Fibonacci {index}th term start...");
 Stopwatch watcher = new();
 watcher.Start();
-//UStringNumber result = Fibonacci.Fibonacci.Generate(index);
 UStringNumber result = Fibonacci.Fibonacci.GetValue(index);
 watcher.Stop();
 

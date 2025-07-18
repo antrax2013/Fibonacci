@@ -2,7 +2,7 @@
 
 public static class Fibonacci
 {
-    private static IEnumerable<UInt128> GenerateSuite(uint index)
+    private static IEnumerable<UInt128> GenerateSequence(uint index)
     {
         yield return 0;
         if (index == 0) yield break;
@@ -24,7 +24,7 @@ public static class Fibonacci
         }
     }
 
-    private static IEnumerable<UStringNumber> GenerateUSSuite(UInt128 index)
+    private static IEnumerable<UStringNumber> GenerateUSSequence(UInt128 index)
     {
         yield return new("0");
         if (index == 0) yield break;
@@ -64,13 +64,13 @@ public static class Fibonacci
 
     public static UInt128 GetValue(uint index)
     {
-        IEnumerable<UInt128> values = GenerateSuite(index);
+        IEnumerable<UInt128> values = GenerateSequence(index);
         return values.Last();
     }
 
     public static UStringNumber GetValue(UInt128 index)
     {
-        IEnumerable<UStringNumber> values = GenerateUSSuite(index);
+        IEnumerable<UStringNumber> values = GenerateUSSequence(index);
         return values.Last();
     }
 
