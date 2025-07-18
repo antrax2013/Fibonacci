@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{C79FECF5-A7B1-4BDE-81E9-423C1F5F057E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Tests", "Fibonacci.Tests\Fibonacci.Tests.csproj", "{AEA68F20-8631-448A-8E95-B81618F1C745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciApp", "FibonacciApp\FibonacciApp.csproj", "{13BE2C3E-B6BF-41BB-BCD0-D21F2F6279EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C79FECF5-A7B1-4BDE-81E9-423C1F5F057E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79FECF5-A7B1-4BDE-81E9-423C1F5F057E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79FECF5-A7B1-4BDE-81E9-423C1F5F057E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79FECF5-A7B1-4BDE-81E9-423C1F5F057E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEA68F20-8631-448A-8E95-B81618F1C745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA68F20-8631-448A-8E95-B81618F1C745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA68F20-8631-448A-8E95-B81618F1C745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA68F20-8631-448A-8E95-B81618F1C745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BE2C3E-B6BF-41BB-BCD0-D21F2F6279EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BE2C3E-B6BF-41BB-BCD0-D21F2F6279EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BE2C3E-B6BF-41BB-BCD0-D21F2F6279EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BE2C3E-B6BF-41BB-BCD0-D21F2F6279EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECCF3809-A0B9-49DF-B0DE-15F47C9D0491}
+	EndGlobalSection
+EndGlobal
