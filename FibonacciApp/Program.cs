@@ -1,13 +1,14 @@
 ﻿
 using Fibonacci;
+using Fibonacci.Calculators;
 using System.Diagnostics;
 
-UInt128 index = 187;
+UInt128 index = 50_000;
 
 Console.WriteLine($"Get Fibonacci {index}th term start...");
 Stopwatch watcher = new();
 watcher.Start();
-UStringNumber result = Fibonacci.Fibonacci.GetValue(index);
+UStringNumber result = USYieldLoopFibonacciCalculator.GetValue(index);
 watcher.Stop();
 
 Console.WriteLine($"Fibonacci {index}th = {result}");

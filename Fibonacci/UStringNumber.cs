@@ -1,6 +1,8 @@
-﻿namespace Fibonacci;
+﻿using System.Numerics;
 
-public class UStringNumber
+namespace Fibonacci;
+
+public class UStringNumber : IAdditionOperators<UStringNumber, UStringNumber, UStringNumber>, IMultiplyOperators<UStringNumber, UStringNumber, UStringNumber>
 {
     private string value;
     public string Value
@@ -44,7 +46,7 @@ public class UStringNumber
         return new string(charArray);
     }
 
-    public UStringNumber Add(UStringNumber other)
+    private UStringNumber Add(UStringNumber other)
     {
         int length = other.Value.Length > Value.Length ? other.Value.Length : Value.Length;
         List<string> result = [];
@@ -74,5 +76,21 @@ public class UStringNumber
 
         string r = string.Join("", result);
         return new UStringNumber(Reverse(r));
+    }
+
+    private UStringNumber Multiply(UStringNumber other)
+    {
+        //int length = other.Value.Length > Value.Length ? other.Value.Length : Value.Length;
+        return new UStringNumber();
+    }
+
+    public static UStringNumber operator +(UStringNumber left, UStringNumber right)
+    {
+        return left.Add(right);
+    }
+
+    public static UStringNumber operator *(UStringNumber left, UStringNumber right)
+    {
+        return left.Multiply(right);
     }
 }

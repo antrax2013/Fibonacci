@@ -38,7 +38,29 @@ public class UStringNumberTests
         UStringNumber A = new(a);
         UStringNumber B = new(b);
 
-        UStringNumber res = A.Add(B);
+        UStringNumber res = A + B;
+        Assert.Equal(expectedResult, res.Value);
+
+    }
+
+    [Fact]
+    public void When_A_UStringNumber_Is_Constructed_With_An_Empty_String_Then_The_Value_Is_0()
+    {
+        UStringNumber A = new("");
+        Assert.Equal("0", A.Value);
+    }
+
+    [Theory]
+    [InlineData("0", "0", "0")]
+    [InlineData("9", "1", "9")]
+    [InlineData("9", "9", "81")]
+    [InlineData("44", "199", "8756")]
+    public void When_Two_UStringNumber_Are_Multiplied_Then_The_ExpectedResult_Is_Return(string a, string b, string expectedResult)
+    {
+        UStringNumber A = new(a);
+        UStringNumber B = new(b);
+
+        UStringNumber res = A * B;
         Assert.Equal(expectedResult, res.Value);
 
     }
