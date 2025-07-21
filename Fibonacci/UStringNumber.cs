@@ -2,7 +2,7 @@
 
 namespace Fibonacci;
 
-public class UStringNumber : IAdditionOperators<UStringNumber, UStringNumber, UStringNumber>, IMultiplyOperators<UStringNumber, UStringNumber, UStringNumber>
+public class UStringNumber : IAdditionOperators<UStringNumber, UStringNumber, UStringNumber>, IMultiplyOperators<UStringNumber, UStringNumber, UStringNumber>, IEquatable<UStringNumber>, IEqualityOperators<UStringNumber, UStringNumber, Boolean>
 {
     private string value;
     public string Value
@@ -31,6 +31,11 @@ public class UStringNumber : IAdditionOperators<UStringNumber, UStringNumber, US
 
 #pragma warning disable CS8618 // Un champ non-nullable doit contenir une valeur autre que Null lors de la fermeture du constructeur. Envisagez d’ajouter le modificateur « required » ou de déclarer le champ comme pouvant accepter la valeur Null.
     public UStringNumber(string value = "0") => Value = value;
+
+    public UStringNumber()
+    {
+        value = "0";
+    }
 #pragma warning restore CS8618 // Un champ non-nullable doit contenir une valeur autre que Null lors de la fermeture du constructeur. Envisagez d’ajouter le modificateur « required » ou de déclarer le champ comme pouvant accepter la valeur Null.
 
     private int GetValueFromEnd(int reverseIndex)
@@ -80,8 +85,25 @@ public class UStringNumber : IAdditionOperators<UStringNumber, UStringNumber, US
 
     private UStringNumber Multiply(UStringNumber other)
     {
-        //int length = other.Value.Length > Value.Length ? other.Value.Length : Value.Length;
-        return new UStringNumber();
+        int otherVal = other.GetValueFromEnd(1);
+        int val = this.GetValueFromEnd(1);
+        return new UStringNumber((otherVal * val).ToString());
+    }
+
+    public override bool Equals(object? other)
+    {
+        if (other is not UStringNumber) return false;
+        return this.Equals((UStringNumber)other);
+    }
+
+    public bool Equals(UStringNumber? other)
+    {
+        return Value == other?.Value;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(value, Value);
     }
 
     public static UStringNumber operator +(UStringNumber left, UStringNumber right)
@@ -92,5 +114,15 @@ public class UStringNumber : IAdditionOperators<UStringNumber, UStringNumber, US
     public static UStringNumber operator *(UStringNumber left, UStringNumber right)
     {
         return left.Multiply(right);
+    }
+
+    public static bool operator ==(UStringNumber? left, UStringNumber? right)
+    {
+        return left!.Equals(right);
+    }
+
+    public static bool operator !=(UStringNumber? left, UStringNumber? right)
+    {
+        return !left!.Equals(right);
     }
 }
