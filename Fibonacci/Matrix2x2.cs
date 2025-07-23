@@ -2,6 +2,7 @@
 
 namespace Fibonacci
 {
+    //https://youtu.be/Hh3bfcbUdzo?si=9bAHnegLpwoMUCPW&t=473
     public class Matrix2x2 : IMultiplyOperators<Matrix2x2, Matrix2x2, Matrix2x2>, IEquatable<Matrix2x2>, IEqualityOperators<Matrix2x2, Matrix2x2, Boolean>
     {
         private readonly UStringNumber[] content = new UStringNumber[4];
@@ -18,6 +19,11 @@ namespace Fibonacci
             content[1] = v2;
             content[2] = v3;
             content[3] = v4;
+        }
+
+        public static Matrix2x2 Clone(Matrix2x2 matrix)
+        {
+            return new(matrix.First, matrix.Second, matrix.Third, matrix.Fourth);
         }
 
         public static Matrix2x2 operator *(Matrix2x2 left, Matrix2x2 right)
@@ -38,6 +44,11 @@ namespace Fibonacci
         public static bool operator !=(Matrix2x2? left, Matrix2x2? right)
         {
             return !left!.Equals(right);
+        }
+
+        public static Matrix2x2 operator ^(Matrix2x2 current, UInt128 n)
+        {
+            throw new NotImplementedException();
         }
 
         public static readonly Matrix2x2 IDENTITY = new(new("1"), new("0"), new("0"), new("1"));

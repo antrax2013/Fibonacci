@@ -35,7 +35,7 @@ public class UStringNumberTests
     [InlineData("9", "1", "10")]
     [InlineData("99", "1", "100")]
     [InlineData("44", "199", "243")]
-    public void When_Two_UStringNumber_Are_Summed_Then_The_ExpectedResult_Is_Return(string a, string b, string expectedResult)
+    public void When_Two_UStringNumber_Are_Summed_Then_The_ExpectedResult_Is_Returned(string a, string b, string expectedResult)
     {
         UStringNumber A = new(a);
         UStringNumber B = new(b);
@@ -53,10 +53,12 @@ public class UStringNumberTests
 
     [Theory]
     [InlineData("0", "0", "0")]
+    [InlineData("1", "1", "1")]
     [InlineData("9", "1", "9")]
     [InlineData("9", "9", "81")]
     [InlineData("44", "199", "8756")]
-    public void When_Two_UStringNumber_Are_Multiplied_Then_The_ExpectedResult_Is_Return(string a, string b, string expectedResult)
+    [InlineData("129", "129", "16641")]
+    public void When_Two_UStringNumber_Are_Multiplied_Then_The_ExpectedResult_Is_Returned(string a, string b, string expectedResult)
     {
         UStringNumber A = new(a);
         UStringNumber B = new(b);
@@ -129,5 +131,22 @@ public class UStringNumberTests
         string B = new("50");
 
         Assert.False(A.Equals(B));
+    }
+
+    [Theory]
+    [InlineData("0", 0, "1")]
+    [InlineData("0", 1, "0")]
+    [InlineData("1", 100, "1")]
+    [InlineData("2", 3, "8")]
+    [InlineData("2", 5, "32")]
+    [InlineData("129", 2, "16641")]
+    [InlineData("1234567890", 0, "1")]
+    [InlineData("1234567890", 1, "1234567890")]
+    [InlineData("1234567890", 2, "1524157875019052100")]
+    public void When_The_Exponential_Of_UStringNumber_Is_Computed_Then_The_Expected_Result_Is_Returned(string a, int b, string expectedResult)
+    {
+        UStringNumber A = new(a);
+        UStringNumber result = A ^ (UInt128)b;
+        Assert.Equal(expectedResult, result.Value);
     }
 }
