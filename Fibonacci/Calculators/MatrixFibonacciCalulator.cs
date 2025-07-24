@@ -15,9 +15,9 @@ public class MatrixFibonacciCalulator : IFibonacciCalculator<UStringNumber>
         if (index <= 2)
             return new("1");
 
-        Matrix2x2 tmp = T ^ (index - 1);
+        Matrix2x2 tmp = T ^ (index - 2);
         Matrix2x2 res = (M0 * tmp);
 
-        return res.First;
+        return res.Second;
     }
 }
