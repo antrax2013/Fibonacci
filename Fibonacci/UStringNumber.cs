@@ -161,6 +161,9 @@ public class UStringNumber :
         UStringNumber result = new("1");
         UStringNumber tmp = new(current.Value);
 
+        if (n == 1)
+            return tmp;
+
         while (n > 0)
         {
             if (n % 2 == 1)
