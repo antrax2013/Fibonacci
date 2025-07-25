@@ -5,7 +5,7 @@ namespace Fibonacci.Calculators;
 public class MatrixFibonacciCalulator : IFibonacciCalculator<UStringNumber>
 {
     private static readonly Matrix2x2 T = new(new("0"), new("1"), new("1"), new("1"));
-    private static readonly Matrix2x2 M0 = new(new("1"), new("1"), new("0"), new("0"));
+    private static readonly Matrix1x2 M0 = new(new("1"), new("1"));
 
     public static UStringNumber GetValue(UInt128 index)
     {
@@ -16,7 +16,7 @@ public class MatrixFibonacciCalulator : IFibonacciCalculator<UStringNumber>
             return new("1");
 
         Matrix2x2 tmp = T ^ (index - 2);
-        Matrix2x2 res = (M0 * tmp);
+        Matrix1x2 res = (M0 * tmp);
 
         return res.Second;
     }

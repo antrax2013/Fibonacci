@@ -21,8 +21,11 @@ cf : https://en.wikipedia.org/wiki/Fibonacci_sequence
 Avec la suite de Fibonacci, on rencontre rapidement un problème d'espace mémoire de stockage des entiers. En effet à partir du 187éme terme, la valeur est composée de 39 chiffres.
 
 ### Le temps de réponse
-Avec la méthode candide que j'ai utilisée, pour calculer le 50 000éme terme, le temps de calcul est de l'ordre de 27s environ. Ce qui dans un contexte d'appel HTTP ne serait pas concevable.
-Pour améliorer cela, je suis passé au calcul matricel à base d'exponentiation matricielle binaire. A ce jour les resultats ne sont pas ceux escomptés. 
+Avec la méthode candide que j'ai utilisée, pour calculer le 50 000éme terme, le temps de calcul est de l'ordre de 16s environ, ce qui dans un contexte d'appel HTTP ne serait pas concevable.
+Pour améliorer cela, je suis passé au calcul matricel à base d'exponentiation matricielle binaire. 
+
+A ce jour les resultats ne sont pas ceux escomptés, tous les bénéfices du calcul matriciel sont perdus dans les multiplications et les additions des UStringNumbers.
+
 
 ## Webographie
 - [yield statement - provide the next element](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/yield)
