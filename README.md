@@ -24,8 +24,9 @@ Avec la suite de Fibonacci, on rencontre rapidement un problème d'espace mémoi
 Avec la méthode candide que j'ai utilisée, pour calculer le 50 000éme terme, le temps de calcul est de l'ordre de 16s environ, ce qui dans un contexte d'appel HTTP ne serait pas concevable.
 Pour améliorer cela, je suis passé au calcul matricel à base d'exponentiation matricielle binaire. 
 
-A ce jour les resultats ne sont pas ceux escomptés, tous les bénéfices du calcul matriciel sont perdus dans les multiplications et les additions des UStringNumbers.
+A ce jour les resultats en C# ne sont pas ceux escomptés, tous les bénéfices du calcul matriciel sont perdus dans les multiplications et les additions des UStringNumbers.
 
+En Python, on obtient, avec une simple boucle, le 1 000 000ème terme en moins d'une dizaine de seconde. Cela vient essentiellement du fait que Python est capable de gérer des nombres beaucoup plus grads que C#. 
 
 ## Webographie
 - [yield statement - provide the next element](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/yield)
