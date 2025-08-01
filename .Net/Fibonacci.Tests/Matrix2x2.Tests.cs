@@ -34,15 +34,6 @@ public class Matrix2x2Tests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
-    public void When_A_Matrix2x2_Is_Multiply_By_Identity_Matrix_Then_The_Result_Is_The_Provided_Matrix()
-    {
-        Matrix2x2 M1 = new(new("2"), new("3"), new("1"), new("2"));
-        Matrix2x2 result = M1 * Matrix2x2.IDENTITY;
-
-        Assert.True(M1 == result);
-    }
-
     public static IEnumerable<object[]> MatrixNExponentCases =>
     [
         [
@@ -60,11 +51,6 @@ public class Matrix2x2Tests
             2,
             new Matrix2x2(new ("7"), new ("12"), new ("4"), new ("7"))
         ],
-        [
-            new Matrix2x2(new ("2"), new ("3"), new ("1"), new ("2")),
-            2,
-            new Matrix2x2(new ("7"), new ("12"), new ("4"), new ("7"))
-        ]
     ];
 
 

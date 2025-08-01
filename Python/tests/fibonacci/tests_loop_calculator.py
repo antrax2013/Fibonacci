@@ -4,9 +4,9 @@ sys.path.append('../')
 import unittest
 from parameterized import parameterized
 
-from sources.modules.loop_fibonacci_calculator import FibonacciLoopCalculator
+from sources.modules.fibonacci.loop_calculator import FibonacciLoopCalculator
 
-class FibonacciCalculatorTests(unittest.TestCase):
+class FibonacciLoopCalculatorTests(unittest.TestCase):
 
   @parameterized.expand([
          [0, 0]
